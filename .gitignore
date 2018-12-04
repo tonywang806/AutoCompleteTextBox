@@ -1,0 +1,9 @@
+
+*.dll
+*.pdb
+AcTextBox/bin/Debug/AcTextBox.xml
+AcTextBox/obj/Debug/AcTextBox.Resources.resources
+AcTextBox/obj/Debug/AcTextBox.vbproj.FileListAbsolute.txt
+AcTextBox/obj/Debug/AcTextBox.vbproj.GenerateResource.Cache
+AcTextBox/obj/Debug/AcTextBox.xml
+AcTextBox/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache

@@ -46,6 +46,7 @@ Public Class CustomizedTextBox
         '候補表示用リストの初期化
         _listBox = New ListBox()
 
+
         'リストアイテムをカスタマイズため
         _listBox.DrawMode = DrawMode.OwnerDrawVariable
         AddHandler _listBox.DrawItem, AddressOf ListBox_DrawItem
@@ -144,7 +145,8 @@ Public Class CustomizedTextBox
                             ' GetItemRectangle does Not work for me
                             ' we add a little extra space by using '_'
                             Dim itemWidth As Integer = CType(graphics.MeasureString(_listBox.Items(i).ToString + "_", _listBox.Font).Width, Integer)
-                            _listBox.Width = If(itemWidth < Width, Width, itemWidth)
+                            _listBox.Width = If(itemWidth < _listBox.Width, _listBox.Width, itemWidth)
+                            _listBox.Width = If(_listBox.Width < Width, Width, _listBox.Width)
                         End If
                     Next
                 End Using

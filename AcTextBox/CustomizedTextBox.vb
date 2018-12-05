@@ -214,7 +214,14 @@ Public Class CustomizedTextBox
             Return indexList.ToArray
         End If
 
-        Dim lastPart As String = value.Substring(i + 1)
+        Dim lastPart As String
+
+        If i = 0 Then
+            lastPart = value.Substring(Text.Length)
+        Else
+            lastPart = value.Substring(i + 1)
+        End If
+
         indexList.Add(i)
 
         If lastPart.Length < Text.Length Then
@@ -222,7 +229,11 @@ Public Class CustomizedTextBox
         Else
             Dim subIndex() As Integer = IndexesOfMatching(lastPart)
             For Each x As Integer In subIndex
-                indexList.Add(i + 1 + x)
+                If i = 0 Then
+                    indexList.Add(Text.Length + x)
+                Else
+                    indexList.Add(i + 1 + x)
+                End If
             Next
             Return indexList.ToArray
         End If

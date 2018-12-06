@@ -219,7 +219,7 @@ Public Class CustomizedTextBox
         If i = 0 Then
             lastPart = value.Substring(Text.Length)
         Else
-            lastPart = value.Substring(i + 1)
+            lastPart = value.Substring(i + Text.Length)
         End If
 
         indexList.Add(i)
@@ -232,7 +232,7 @@ Public Class CustomizedTextBox
                 If i = 0 Then
                     indexList.Add(Text.Length + x)
                 Else
-                    indexList.Add(i + 1 + x)
+                    indexList.Add(i + Text.Length + x)
                 End If
             Next
             Return indexList.ToArray
@@ -260,6 +260,12 @@ Public Class CustomizedTextBox
 
             'すべてマッチング分を切り取る
             Dim indexes() As Integer = IndexesOfMatching(currentTxt)
+            Console.WriteLine(Text)
+            Console.WriteLine(currentTxt)
+            For Each x As Integer In indexes
+                Console.WriteLine(x)
+            Next
+            Console.WriteLine("-------------------------------")
             With currentTxt
                 middleTxt.Add(.Substring(0, indexes(0)))
                 For i As Integer = 0 To indexes.Length - 1
